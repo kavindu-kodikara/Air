@@ -6,7 +6,7 @@ use App\Models\User;
 use App\Models\Sensor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use Illuminate\Support\Facades\Auth;
 
 class SensorController extends Controller
 {
@@ -20,16 +20,28 @@ class SensorController extends Controller
            
         ]);
 
+        $incomingField['admins_id'] = Auth::guard('admin')->id();
+
         Sensor::create($incomingField);
 
-        // Process the registration logic here (e.g., save to database)
-        // For demonstration, we'll just return the incoming data as a JSON response
-
-    return response()->json([
-            'message' => 'Sensor registered successfully',
-            'sensor' => $incomingField,
-        ]);
+        return redirect('/admin-dashboard')->with('success', 'Sensor registered successfully!');
         
+    }
+
+    public function status(Request $request){
+        $status = $request->input('status');
+        $id = $request->input('id');
+
+        $sensor = Sensor::find($id);
+        $sensor->status = $status;
+        $sensor->save();
+
+        return response()->json(['success'=>true]);
+
+    }
+
+    public function loadChart(Request $request){
+
     }
     
 }

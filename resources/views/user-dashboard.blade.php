@@ -70,7 +70,7 @@
             <div style="width: 50%;">
                 <a href="#" class="logo">
                     <i class="fas fa-wind"></i>
-                    AirQuality admin
+                    {{$name}}
                 </a>
             </div>
             <div style="width: 50%;display: flex;justify-content: flex-end">
@@ -93,9 +93,9 @@
 
                 <div style="display: flex; flex-direction: row;gap: 30px">
 
-                    <div style="width: 45%; display: flex; flex-direction: column;gap: 30px">
+                    <div style="width: 100%; display: flex; flex-direction: row;gap: 30px">
 
-                        <div style="height: 50%;display: flex; flex-direction: row;gap: 30px">
+                        <div style="width: 50%;display: flex; flex-direction: row;gap: 30px">
 
                             <div class="card" style="width: 50%;">
                                 <div style="display: flex; flex-direction: row;gap: 20px;align-items: center">
@@ -110,7 +110,7 @@
                             <div class="card" style="width: 50%;">
                                 <div style="display: flex; flex-direction: row;gap: 20px;align-items: center">
                                     <img src="{{ asset('images/live.png') }}" style="width: 50px">
-                                    <span class="fw-bold text-black-50" style="font-size: 18px">My Seneors</span>
+                                    <span class="fw-bold text-black-50" style="font-size: 18px">User's Seneors</span>
                                 </div>
                                 <div style="width: 100%; height: 100%;display: flex; justify-content: center;align-items: center">
                                     <span class="fs-1 fw-bold">0{{$sensors->count()}}</span>
@@ -119,8 +119,8 @@
 
                         </div>
 
-                        <div class="card" style="height: 50%;display: flex; flex-direction: row;">
-                            <div style="width: 50%">
+                        <div class="card" style="width: 50%;display: flex; flex-direction: row;align-items: center">
+                            <div style="width: 100%">
                                 <span class="text-black-50 fw-bold" style="font-size: 18px;">Sensor Status</span>
 
                                 <div style="display: flex;flex-direction: column;width: 100%;height: 100%;gap: 10px;margin-left: 20px;margin-top: 20px">
@@ -139,7 +139,7 @@
                                 </div>
 
                             </div>
-                            <div style="width: 50%;display: flex;justify-content: center;align-items: center">
+                            <div style="width: 50%;height: 90%;display: flex;justify-content: center;align-items: center">
                                 <canvas id="myChart" width="100" height="100" ></canvas> 
                             </div>
                             
@@ -148,35 +148,7 @@
                     </div>
                     
     
-                    <div class="card"  style="width: 55%">
-                        <div style="display: flex; flex-direction: row;gap: 10px;align-items: center">
-                            <img src="{{ asset('images/addnew.png') }}" style="width: 40px">
-                            <span style="font-weight: bold; font-size: 20px;color: #3A0CA3">Add Sensor</span>
-                        </div>
-                        
-                        <div style="padding: 1.5rem;">
-                            <form action="/sensor-register" method="POST"  id="sensorForm">
-                               @csrf
-                                <div style="margin-bottom: 1.5rem;">
-                                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Location Name*</label>
-                                    <input name="location" type="text" placeholder="Location Name" required
-                                        style="width: 100%; padding: 0.8rem; border: 1px solid #e2e8f0; border-radius: 0.5rem;">
-                                </div>
-                                
-                                <div style="margin-bottom: 1.5rem;">
-                                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Map Location*</label>
-                                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
-                                        <input name="lat" type="text" placeholder="Latitude"  
-                                            style="padding: 0.8rem; border: 1px solid #e2e8f0; border-radius: 0.5rem;">
-                                        <input name="long" type="text" placeholder="Longitude"  
-                                            style="padding: 0.8rem; border: 1px solid #e2e8f0; border-radius: 0.5rem;">
-                                    </div>
-                                </div>
-    
-                                <button type="submit" class="btn btn-primary" style="width: 100%">Register Sensor</button>
-                            </form>
-                        </div>
-                    </div> 
+                    
                 </div>
 
                

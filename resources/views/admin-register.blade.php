@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,15 +31,8 @@
         }
 
         @keyframes loginEnter {
-            from {
-                transform: translateY(-50px);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
         .login-header {
@@ -55,14 +47,6 @@
 
         .input-group {
             margin-bottom: 1.5rem;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .input-group label {
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            color: #2d3748;
         }
 
         .input-group input {
@@ -96,37 +80,44 @@
         }
     </style>
 </head>
-
 <body>
-    <form class="login-box" action="/Adminlogin" method="POST">
+    <form class="login-box" method="POST" action="/admin-register-process">
         @csrf
         <div class="login-header">
-            <h1>Admin Login</h1>
+            <h1>Admin Registration</h1>
             <p>Access your dashboard</p>
         </div>
     
-        @if ($errors->has('login'))
-            <p style="color: red; text-align: center;">{{ $errors->first('login') }}</p>
+        @if ($errors->has('register'))
+            <p style="color: red; text-align: center;">{{ $errors->first('register') }}</p>
         @endif
     
         <div class="input-group">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Enter your name" value="{{ old('name') }}">
+            @error('name')
+                <p style="color: red; font-size: 14px;">{{ $message }}</p>
+            @enderror
+        </div>
+    
+        <div class="input-group">
             <label for="email">Email</label>
-            <input id="email" name="loginemail" type="email" placeholder="Enter your email" value="{{ old('loginemail') }}">
-            @error('loginemail')
+            <input id="email" name="email" type="email" placeholder="Enter your email" value="{{ old('email') }}">
+            @error('email')
                 <p style="color: red; font-size: 14px;">{{ $message }}</p>
             @enderror
         </div>
     
         <div class="input-group">
             <label for="password">Password</label>
-            <input id="password" name="loginpassword" type="password" placeholder="Enter your password">
-            @error('loginpassword')
+            <input id="password" name="password" type="password" placeholder="Enter your password">
+            @error('password')
                 <p style="color: red; font-size: 14px;">{{ $message }}</p>
             @enderror
         </div>
     
-        <button type="submit" class="login-btn">Sign In</button>
+        <button type="submit" class="login-btn">Register</button>
     </form>
+    
 </body>
-
 </html>
