@@ -63,7 +63,11 @@ Admins are assigned sensors and have access to a dashboard with the following fe
 
 </br></br>
 
-![Admin Dashboard](img/adminDashboard.png)
+![Admin Dashboard](img/adminD.png)
+
+</br>
+
+![Admin Dashboard](img/sensorChart.png)
 
 </br>
 
@@ -79,7 +83,15 @@ Administrators have full control over the platform and can:
 
 </br></br>
 
-![Administrator Dashboard](img/adminMainDashboard.png)
+![Administrator Dashboard](img/aUserM.png)
+
+</br>
+
+![Administrator Dashboard](img/aSensorM.png)
+
+</br>
+
+![Administrator Dashboard](img/aSensorRe.png)
 
 </br>
 
